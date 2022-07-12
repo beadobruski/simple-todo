@@ -1,3 +1,4 @@
+import { TbClipboardText } from 'react-icons/tb';
 import { ITask } from '../../App';
 import { Task } from '../Task';
 import styles from './tasks.module.css';
@@ -5,9 +6,10 @@ import styles from './tasks.module.css';
 interface Props {
   tasks: ITask[];
   onDeleteTask: (taskId: string) => void;
+  onCompleteTask: (taskId: string) => void;
 }
 
-export function Tasks({ tasks, onDeleteTask }: Props) {
+export function Tasks({ tasks, onDeleteTask, onCompleteTask }: Props) {
   const tasksQuantity = tasks.length;
   const completedTasks = tasks.filter((task) => task.isCompleted).length;
 
@@ -29,8 +31,23 @@ export function Tasks({ tasks, onDeleteTask }: Props) {
 
       <div className={styles.list}>
         {tasks.map((task) => (
-          <Task key={task.id} task={task} onDeleteTask={onDeleteTask} />
+          <Task
+            key={task.id}
+            task={task}
+            onDeleteTask={onDeleteTask}
+            onCompleteTask={onCompleteTask}
+          />
         ))}
+
+        {tasks.length <= 0 && (
+          <section className={styles.empty}>
+            <TbClipboardText size={50} />
+            <div>
+              <strong>Você ainda não tem tarefas cadastradas</strong>
+              <p>Crie tarefas e organize seus itens a fazer</p>
+            </div>
+          </section>
+        )}
       </div>
     </section>
   );

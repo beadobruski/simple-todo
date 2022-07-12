@@ -45,3 +45,20 @@
   flex-direction: column;
   gap: 0.75rem;
 }
+
+.empty {
+  margin-top: 4rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+
+  color: var(--gray-300);
+  text-align: center;
+}
+
+.empty svg {
+  opacity: 0.3;
+}
