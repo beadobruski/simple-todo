@@ -23,10 +23,16 @@ export function App() {
     ]);
   }
 
+  function handleDeleteTaskById(taskId: string) {
+    const newTasks = tasks.filter((task) => task.id !== taskId);
+
+    setTasks(newTasks);
+  }
+
   return (
     <div className="App">
       <Header onAddTask={handleAddTask} />
-      <Tasks tasks={tasks} />
+      <Tasks tasks={tasks} onDeleteTask={handleDeleteTaskById} />
     </div>
   );
 }
