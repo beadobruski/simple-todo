@@ -4,6 +4,8 @@
 O ToDo App é uma aplicação no qual o usuário pode adicionar tarefas, marcar como concluídas e deletá-las.
 Nesse projeto, treinei os fundamentos do React, nos quais utilizei muito: estados e props. Também pude aplicar a funcionalidade de um Local Storage, no qual as tarefas adicionadas pelo usuário ficam salvas no Local Storage do navegador!
 
+Veja o deploy do projeto aqui: https://simple-todo-steel.vercel.app/
+
 ### Consiste em uma lista de tarefas com as seguintes funcionalidades:
 
 - Adicionar uma nova tarefa;
