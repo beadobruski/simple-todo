@@ -1,5 +1,8 @@
 import { useEffect, useState } from 'react';
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import { Header } from './components/Header';
 import { Tasks } from './components/Tasks';
 
@@ -33,14 +36,24 @@ export function App() {
   }
 
   function handleAddTask(taskTitle: string) {
-    setTasksAndSave([
-      ...tasks,
-      {
-        id: crypto.randomUUID(),
-        title: taskTitle,
-        isCompleted: false,
-      },
-    ]);
+    if (taskTitle.length === 0) {
+      return toast.error('Por favor, adicione alguma tarefa.', {
+        autoClose: 2000,
+      });
+    } else {
+      toast.success('Tarefa adicionada com sucesso!', {
+        autoClose: 2000,
+      });
+
+      setTasksAndSave([
+        ...tasks,
+        {
+          id: crypto.randomUUID(),
+          title: taskTitle,
+          isCompleted: false,
+        },
+      ]);
+    }
   }
 
   function handleDeleteTaskById(taskId: string) {
@@ -71,6 +84,8 @@ export function App() {
         onDeleteTask={handleDeleteTaskById}
         onCompleteTask={toggleTaskCompletedById}
       />
+
+      <ToastContainer pauseOnHover={false} />
     </div>
   );
 }
