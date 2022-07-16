@@ -1,12 +1,14 @@
 import { TbClipboardText } from 'react-icons/tb';
+
 import { ITask } from '../../App';
 import { Task } from '../Task';
+
 import styles from './tasks.module.css';
 
 interface Props {
   tasks: ITask[];
-  onCompleteTask: (taskId: string) => void;
   onDeleteTask: (taskId: string) => void;
+  onCompleteTask: (taskId: string) => void;
 }
 
 export function Tasks({ tasks, onDeleteTask, onCompleteTask }: Props) {
