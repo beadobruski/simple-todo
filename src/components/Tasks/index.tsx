@@ -5,8 +5,8 @@ import styles from './tasks.module.css';
 
 interface Props {
   tasks: ITask[];
-  onDeleteTask: (taskId: string) => void;
   onCompleteTask: (taskId: string) => void;
+  onDeleteTask: (taskId: string) => void;
 }
 
 export function Tasks({ tasks, onDeleteTask, onCompleteTask }: Props) {
