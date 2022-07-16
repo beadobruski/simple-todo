@@ -34,8 +34,8 @@ export function Tasks({ tasks, onDeleteTask, onCompleteTask }: Props) {
           <Task
             key={task.id}
             task={task}
-            onDeleteTask={onDeleteTask}
             onCompleteTask={onCompleteTask}
+            onDeleteTask={onDeleteTask}
           />
         ))}
 
